@@ -25,151 +25,50 @@
 
                     <ul class="dropdown-menu">
                         <li class="{{ Request::is('users*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('users.index') }}"><i class="fas fa-user-secret"></i>
+                            <a class="nav-link" href="#"><i class="fas fa-user-secret"></i>
                                 <span>
                                     Users
                                 </span>
                             </a>
                         </li>
                     </ul>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('students*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('students.index') }}"><i
-                                    class="fa-solid fa-user-graduate"></i>
-                                <span>
-                                    student
-                                </span>
-                            </a>
-                        </li>
-
-                    </ul>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('lecturers*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('lecturers.index') }}"><i
-                                    class="fa-solid fa-user-tie"></i>
-                                <span>
-                                    Dosen
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-
-                <li class="{{ Request::is('schedules*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('schedules.index') }}"><i
-                            class="fa-regular fa-calendar-days"></i>
-                        <span>
-                            Jadwal
-                        </span>
-                    </a>
-                </li>
-
-                {{-- <li class="{{ Request::is('listLub*') ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('siswa.listLub') }}"><i class="fa-solid fa-list-check"></i>
-                        <span>
-                            List LUB
-                        </span>
-                    </a>
-                </li> --}}
-
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fas fa-clipboard-question"></i>
-                        <span>Kuesioner</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('questions*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('questions.index') }}">
-                                <span>
-                                    Kuesioner & Pertanyaan
-                                </span>
-                            </a>
-                        </li>
-
-                    </ul>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('answers*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('answers.index') }}">
-                                <span>
-                                    Master Jawaban
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="nav-item dropdown">
                     <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-gear"></i>
-                        <span>Tools</span></a>
+                        <span>Master</span></a>
                     <ul class="dropdown-menu">
                         <li class="{{ Request::is('periods*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('periods.index') }}"><i class="fa-solid fa-gears"></i>
+                            <a class="nav-link" href="{{ route('study-systems.index') }}"><i
+                                    class="fa-solid fa-gears"></i>
                                 <span>
-                                    Periode Akademik
+                                    Sistem Kuliah
                                 </span>
                             </a>
                         </li>
                     </ul>
                     <ul class="dropdown-menu">
                         <li class="{{ Request::is('kuesioner*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('kuesioners.index') }}"><i
+                            <a class="nav-link" href="{{ route('study-programs.index') }}"><i
                                     class="fa-solid fa-gears"></i>
                                 <span>
-                                    Generate Kuesioner
+                                    Program Studi
                                 </span>
                             </a>
                         </li>
                     </ul>
                     <ul class="dropdown-menu">
                         <li class="{{ Request::is('fix*') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('fix.response.statuses.form') }}"><i
-                                    class="fa-solid fa-gears"></i>
+                            <a class="nav-link" href="#"><i class="fa-solid fa-gears"></i>
                                 <span>
-                                    Fix Response Status
+                                    Konsentrasi
                                 </span>
                             </a>
                         </li>
                     </ul>
                 </li>
 
-                <li class="{{ Request::is('users/' . auth()->id()) ? 'active' : '' }}">
-                    <a class="nav-link" href="{{ route('users.show', auth()->id()) }}">
-                        <i class="fa-solid fa-user"></i>
-                        <span>
-                            Profil
-                        </span>
-                    </a>
-                </li>
 
-                <li class="menu-header">Laporan</li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-gear"></i>
-                        <span>Laporan</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('report/per-shcedule') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('report.index') }}">Laporan Perjadwal</a>
-                        </li>
-                    </ul>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('report.perstudent') }}">Laporan Per Mahasiswa</a>
-                        </li>
-                    </ul>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('admin/settings') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('report.perlecturer') }}">Laporan Per Dosen</a>
-                        </li>
-                    </ul>
-                </li>
-
-                {{-- <li class="menu-header">Dosen</li>
-                <li class="nav-item dropdown">
-                    <a href="#" class="nav-link has-dropdown"><i class="fa-solid fa-gear"></i>
-                        <span>Laporan</span></a>
-                    <ul class="dropdown-menu">
-                        <li class="{{ Request::is('report/dosen') ? 'active' : '' }}">
-                            <a class="nav-link" href="{{ route('report.lecturer') }}">Kuesioner per Dosen</a>
-                        </li>
-                    </ul>
-                </li> --}}
 
             </ul>
         @elseif(Auth::user()->role == 'pjlub')

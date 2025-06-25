@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\ConcentrationController;
 use App\Http\Controllers\GoogleController;
+use App\Http\Controllers\StudyProgramController;
+use App\Http\Controllers\StudySystemController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +25,10 @@ Route::middleware(['auth'])->group(
         Route::get('/', function () {
             return view('pages.dashboard.index', ['type_menu' => '']);
         })->name('home');
+
+        Route::resource('study-systems', StudySystemController::class);
+        Route::resource('study-programs', StudyProgramController::class);
+        Route::resource('concentrations', ConcentrationController::class);
     }
+
 );
