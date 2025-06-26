@@ -10,13 +10,13 @@ class ConcentrationController extends Controller
 {
     public function index()
     {
-        $concentrations = Concentration::with('studyProgram.faculty')->paginate(10);
+        $concentrations = Concentration::with('studyProgram')->paginate(10);
         return view('pages.master.concentrations.index', compact('concentrations'));
     }
 
     public function create()
     {
-        $studyPrograms = StudyProgram::where('is_active', true)->with('faculty')->get();
+        $studyPrograms = StudyProgram::where('is_active', true)->get();
         return view('pages.master.concentrations.create', compact('studyPrograms'));
     }
 
@@ -41,13 +41,13 @@ class ConcentrationController extends Controller
 
     public function show(Concentration $concentration)
     {
-        $concentration->load('studyProgram.faculty');
+        $concentration->load('studyProgram');
         return view('pages.master.concentrations.show', compact('concentration'));
     }
 
     public function edit(Concentration $concentration)
     {
-        $studyPrograms = StudyProgram::where('is_active', true)->with('faculty')->get();
+        $studyPrograms = StudyProgram::where('is_active', true)->get();
         return view('pages.master.concentrations.edit', compact('concentration', 'studyPrograms'));
     }
 

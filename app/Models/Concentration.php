@@ -12,6 +12,7 @@ class Concentration extends Model
         'code',
         'name',
         'short_name',
+        'quota',
         'description',
         'min_grade',
         'is_active',

@@ -19,7 +19,8 @@ class CreateConcentrationsTable extends Migration
             $table->string('code');
             $table->string('name');
             $table->string('short_name');
-            $table->text('description');
+            $table->text('description')->nullable();
+            $table->integer('quota')->nullable();
             $table->decimal('min_grade', 4,2)->nullable();
             $table->boolean('is_active')->default(false);
             $table->timestamps();

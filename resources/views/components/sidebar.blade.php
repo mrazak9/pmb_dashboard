@@ -58,14 +58,14 @@
                         </li>
                     </ul>
                     <ul class="dropdown-menu">
-                        <li class="{{ Request::is('fix*') ? 'active' : '' }}">
-                            <a class="nav-link" href="#"><i class="fa-solid fa-gears"></i>
-                                <span>
-                                    Konsentrasi
-                                </span>
+                        <li class="{{ Request::is('concentrations*') ? 'active' : '' }}">
+                            <a class="nav-link" href="{{ route('concentrations.index') }}">
+                                <i class="fa-solid fa-gears"></i>
+                                <span>Konsentrasi</span>
                             </a>
                         </li>
                     </ul>
+
                 </li>
 
 

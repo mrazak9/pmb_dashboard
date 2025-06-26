@@ -37,7 +37,7 @@ class StudyProgramController extends Controller
 
     public function show(StudyProgram $studyProgram)
     {
-        $studyProgram->load(['faculty', 'concentrations']);
+        $studyProgram->load(['concentrations']);
         return view('pages.master.study_programs.show', compact('studyProgram'));
     }
 
@@ -57,7 +57,17 @@ class StudyProgramController extends Controller
             'is_active' => 'boolean'
         ]);
 
-        $studyProgram->update($request->all());
+        $studyProgram->update($request->only([
+            'code',
+            'name',
+            'level',
+            'accreditation',
+            'description',
+            'is_active',
+        ]));
+
+        $studyProgram->is_active = $request->has('is_active');
+        $studyProgram->save();
 
         return redirect()->route('study-programs.index')
             ->with('success', 'Program Studi berhasil diupdate.');

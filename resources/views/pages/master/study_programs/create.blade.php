@@ -40,10 +40,9 @@
                                 <select class="form-control @error('level') is-invalid @enderror" id="level"
                                     name="level" required>
                                     <option value="">Pilih Jenjang</option>
+                                    <option value="D1" {{ old('level') == 'D1' ? 'selected' : '' }}>D1</option>
                                     <option value="D3" {{ old('level') == 'D3' ? 'selected' : '' }}>D3</option>
                                     <option value="S1" {{ old('level') == 'S1' ? 'selected' : '' }}>S1</option>
-                                    <option value="S2" {{ old('level') == 'S2' ? 'selected' : '' }}>S2</option>
-                                    <option value="S3" {{ old('level') == 'S3' ? 'selected' : '' }}>S3</option>
                                 </select>
                                 @error('level')
                                     <div class="invalid-feedback">{{ $message }}</div>
